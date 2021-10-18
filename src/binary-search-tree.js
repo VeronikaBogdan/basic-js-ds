@@ -8,7 +8,7 @@ const { Node } = require('../extensions/list-tree.js');
 */
 module.exports = class BinarySearchTree {
   root() {
-		this.firstRoot = null;
+		return !this.firstRoot ? null : this.firstRoot;
   }
 
   add(data) {
@@ -60,12 +60,12 @@ module.exports = class BinarySearchTree {
       }
 
       if (node.data === data) {
-        return node.data;
+        return node;
       }
 
       return data < node.data ? 
-        searchWithin(node.left, data) : 
-        searchWithin(node.right, data);
+        findWithin(node.left, data) : 
+        findWithin(node.right, data);
     }
   }
 
